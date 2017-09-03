@@ -18,8 +18,7 @@ const parser = (function () {
      */
   pItems.fromSrt = function (data, ms) {
     const useMs = !!ms
-    // const regex = '(\\d+)\\n(\\d{1,2}:\\d{2}:\\d{2},\\d{3}) --> (\\d{1,2}:\\d{2}:\\d{2},\\d{3})\\n([\\pL\\pP].+)'
-    const regex = '(\\d+)\\n(\\d{1,2}:\\d{2}:\\d{2},\\d{3}) --> (\\d{1,2}:\\d{2}:\\d{2},\\d{3})\\n([\\pL\\pP].*)'
+    const regex = '(\\d+)\\n(\\d{1,2}:\\d{2}:\\d{2},\\d{3}) --> (\\d{1,2}:\\d{2}:\\d{2},\\d{3})\\n(([\\pL\\pP\\pS].*\\n){1,})'
     const items = []
 
     data = data.replace(/\r/g, '')
@@ -29,7 +28,7 @@ const parser = (function () {
         id: match[1].trim(),
         startTime: useMs ? timeMs(match[2].trim()) : match[2].trim(),
         endTime: useMs ? timeMs(match[3].trim()) : match[3].trim(),
-        text: match[4].replace('|', '\n').trim()
+        text: match[4].trim()
       })
     })
 

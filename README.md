@@ -6,7 +6,7 @@ Difference to the original version from bazh:
 + prepared for unicode languages, e.g. Chinese, Russian, etc
 + more lenient regarding the notation of hours in timestamp (can be 00:mm... or 0:mm...)
 + ES6 support (const/let)
-+ Multi-line support with "|" symbol
++ Multi-line support for all languages
 
 
 ### Installation:
