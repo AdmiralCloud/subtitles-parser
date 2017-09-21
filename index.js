@@ -18,7 +18,8 @@ const parser = (function () {
      */
   pItems.fromSrt = function (data, ms) {
     const useMs = !!ms
-    const regex = '(\\d+)\\n(\\d{1,2}:\\d{2}:\\d{2},\\d{3}) --> (\\d{1,2}:\\d{2}:\\d{2},\\d{3})\\n(([\\pL\\pP\\pS].*\\n){1,})'
+    let regex = '(\\d+)\\n(\\d{1,2}:\\d{2}:\\d{2},\\d{3}) --> (\\d{1,2}:\\d{2}:\\d{2},\\d{3})\\n'
+        regex+= '((((\\d{0,}\\s{1}){1,}[\\pL\\pP\\pS].*\\n)|([\\pL\\pP\\pS].*\\n)){1,})'
     const items = []
 
     data = data.replace(/\r/g, '')
