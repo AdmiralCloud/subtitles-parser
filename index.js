@@ -11,6 +11,24 @@ const parser = (function () {
      *     endTime:   `End time of subtitle
      *     text: `Text of subtitle`
      * }]
+     * 
+     * The challenge is to distinguish between text that starts with numbers and new subtitle (which also start with a number)
+     * 
+     * Allow text to begin with an optional number, an optional character (see below) a space and text or just text
+     * E.g.
+     * 123 people
+     * 123% of the revenue
+     * The revenue
+     * 
+     * Allowed characters immediately after a number
+     * ! - 0021
+     * # - 0023
+     * $ - 0024
+     * % - 0025
+     * & - 0026
+     * * - 002a
+     * + - 002b
+     * § - 00a7
      *
      * @param  {String}  data SubRip suntitles string
      * @param  {Boolean} ms   Optional: use milliseconds for startTime and endTime
@@ -19,7 +37,7 @@ const parser = (function () {
   pItems.fromSrt = function (data, ms) {
     const useMs = !!ms
     let regex = '(\\d+)\\n(\\d{1,2}:\\d{2}:\\d{2},\\d{3}) --> (\\d{1,2}:\\d{2}:\\d{2},\\d{3})\\n'
-        regex+= '((((\\d{0,}\\s{1}){1,}[\\pL\\pP\\pS].*\\n)|([\\pN\\pL\\pP\\pS].*\\n)){1,})'
+        regex+= '((((\\d{0,}[\\u{0021}\\u{0023}\\u{0024}\\u{0025}\\u{0026}\\u{002a}\\u{002b}\\u{00a7}]{0,}\\s{1}){1,}[\\pL\\pP\\pS].*\\n)|([\\pL\\pP\\pS].*\\n)){1,})'
     const items = []
 
     data = data.replace(/\r/g, '')
