@@ -82,3 +82,6 @@ then it will convert startTime and endTime properties into millisecods:
 
 
 `parser.toSrt()` will convert object back to SubRip subtitles format.
+
+### Good Reads
++ http://www.regular-expressions.info/unicode.html
