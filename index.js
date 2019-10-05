@@ -31,24 +31,29 @@ const parser = (function () {
     const items = []
 
     data = data.replace(/\r/g, '')
-
     XRegExp.forEach(data, XRegExp(regex, 'gu'), (match, i) => {
       let cueboxArray = match[4].trim().split(' ')
       let cuebox = {}
+      let cueboxHasValue
       cueboxArray.forEach(item => {
         let split = item.split(':')
-        cuebox[split[0]] = split[1]
+        if (split[1]) {
+          cuebox[split[0]] = split[1]
+          cueboxHasValue = true
+        }
       })
-
-      items.push({
+      let item = {
         id: match[1].trim(),
         startTime: useMs ? timeMs(match[2].trim()) : match[2].trim(),
         endTime: useMs ? timeMs(match[3].trim()) : match[3].trim(),
-        text: match[6].trim(),
-        settings: {
+        text: match[6].trim()
+      }
+      if (cueboxHasValue) {
+        item.settings = {
           cuebox
         }
-      })
+      }
+      items.push(item)
     })
 
     return items
