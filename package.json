@@ -1,8 +1,9 @@
 {
   "name": "subtitles-parser",
   "description": "NodeJS Parser for SubRip subtitles",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "bazh <interesno@gmail.com>",
+  "contributor": ["Mark Poepping <mark@mmpro.de>"],
   "license": "MIT",
   "keywords": [
     "subtitles",

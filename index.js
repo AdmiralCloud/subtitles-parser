@@ -11,43 +11,43 @@ const parser = (function () {
      *     endTime:   `End time of subtitle
      *     text: `Text of subtitle`
      * }]
-     * 
+     *
      * The challenge is to distinguish between text that starts with numbers and new subtitle (which also start with a number)
-     * 
-     * Allow text to begin with an optional number, an optional character (see below) a space and text or just text
-     * E.g.
-     * 123 people
-     * 123% of the revenue
-     * The revenue
-     * 
-     * Allowed characters immediately after a number
-     * ! - 0021
-     * # - 0023
-     * $ - 0024
-     * % - 0025
-     * & - 0026
-     * * - 002a
-     * + - 002b
-     * § - 00a7
+     *
+     * Now, the SRT
      *
      * @param  {String}  data SubRip suntitles string
      * @param  {Boolean} ms   Optional: use milliseconds for startTime and endTime
-     * @return {Array}  
+     * @return {Array}
      */
   pItems.fromSrt = function (data, ms) {
     const useMs = !!ms
-    let regex = '(\\d+)\\n(\\d{1,2}:\\d{2}:\\d{2},\\d{3}) --> (\\d{1,2}:\\d{2}:\\d{2},\\d{3})\\n'
-        regex+= '((((\\d{0,}[\\u{0021}\\u{0023}\\u{0024}\\u{0025}\\u{0026}\\u{002a}\\u{002b}\\u{00a7}]{0,}\\s{1}){1,}[\\pL\\pP\\pS].*\\n)|([\\pL\\pP\\pS].*\\n)){1,})'
+
+    let regex = '(\\d+)\\n' // Identifier (optional?, can it be a string?)
+    regex += '(\\d{1,2}:\\d{2}:\\d{2},\\d{3}) --> (\\d{1,2}:\\d{2}:\\d{2},\\d{3})' // CUE
+    regex += '(( \\S{1,}:[\\d|\\S]{1,}){0,})\\n' // OPTIONAL INSTRUCTIONS
+    regex += '(([\\pN\\pL\\pP\\pS\\p{Z}]{1,}\\n)([\\pN\\pL\\pP\\pS\\p{Z}]{1,}\\n{0,1}){0,})'
+
     const items = []
 
     data = data.replace(/\r/g, '')
 
     XRegExp.forEach(data, XRegExp(regex, 'gu'), (match, i) => {
+      let cueboxArray = match[4].trim().split(' ')
+      let cuebox = {}
+      cueboxArray.forEach(item => {
+        let split = item.split(':')
+        cuebox[split[0]] = split[1]
+      })
+
       items.push({
         id: match[1].trim(),
         startTime: useMs ? timeMs(match[2].trim()) : match[2].trim(),
         endTime: useMs ? timeMs(match[3].trim()) : match[3].trim(),
-        text: match[4].trim()
+        text: match[6].trim(),
+        settings: {
+          cuebox
+        }
       })
     })
 

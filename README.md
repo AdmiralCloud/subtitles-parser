@@ -7,6 +7,7 @@ Difference to the original version from bazh:
 + more lenient regarding the notation of hours in timestamp (can be 00:mm... or 0:mm...)
 + ES6 support (const/let)
 + Multi-line support for all languages
++ support for cue box instructions (align, position, etc) from 0.0.7
 
 
 ### Installation:
