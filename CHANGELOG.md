@@ -1,3 +1,12 @@
+<a name="0.0.2"></a>
+
+## [0.0.2](https://github.com/mmpro/subtitles-parser/compare/v0.0.1..v0.0.2) (2020-08-21 18:39:44)
+
+
+### Bug Fix
+
+* **App:** Typo fix | MP | [870dc9d45aabc08a35c499e57fb20ac37873c47c](https://github.com/mmpro/subtitles-parser/commit/870dc9d45aabc08a35c499e57fb20ac37873c47c)    
+Typo fix
 <a name="0.0.1"></a>
 
 ## [0.0.1](https://github.com/mmpro/ac-api-server/compare/..v0.0.1) (2020-08-21 18:38:24)
