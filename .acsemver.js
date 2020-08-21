@@ -1,9 +1,6 @@
 module.exports = {
   repository: {
-    url: 'https://github.com/mmpro/ac-api-server'
-  },
-  jira: {
-    url: 'https://mmpro.atlassian.net'
+    url: 'https://github.com/mmpro/subtitles-parser'
   },
   changelogFile: __dirname + '/CHANGELOG.md',
   sections: [
