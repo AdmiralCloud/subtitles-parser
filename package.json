@@ -3,7 +3,9 @@
   "description": "NodeJS Parser for SubRip subtitles",
   "version": "0.0.8",
   "author": "bazh <interesno@gmail.com>",
-  "contributor": ["Mark Poepping <mark@mmpro.de>"],
+  "contributor": [
+    "Mark Poepping <mark@mmpro.de>"
+  ],
   "license": "MIT",
   "keywords": [
     "subtitles",
@@ -21,13 +23,9 @@
   },
   "main": "index.js",
   "devDependencies": {
-    "eslint": "^4.19.1",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^5.2.1",
-    "eslint-plugin-promise": "^3.8.0",
-    "eslint-plugin-standard": "^3.1.0",
-    "mocha": "^5.2.0",
+    "ac-semantic-release": "^0.2.2",
+    "eslint": "^7.7.0",
+    "mocha": "^8.1.1",
     "should": "^13.2.3"
   },
   "engines": {
@@ -39,7 +37,9 @@
   "scripts": {
     "test": "mocha",
     "make": "uglifyjs -cmo subtitles.parser.min.js index.js",
-    "lint-fix": "./node_modules/eslint/bin/eslint.js --fix index.js"
+    "lint-fix": "./node_modules/eslint/bin/eslint.js --fix index.js",
+    "commit": "node ./node_modules/ac-semantic-release/lib/commit.js",
+    "release": "node ./node_modules/ac-semantic-release/lib/release.js"
   },
   "dependencies": {
     "xregexp": "^4.2.0"

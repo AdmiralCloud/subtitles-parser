@@ -31,7 +31,7 @@ const parser = (function () {
     const items = []
 
     data = data.replace(/\r/g, '')
-    XRegExp.forEach(data, XRegExp(regex, 'gu'), (match, i) => {
+    XRegExp.forEach(data, XRegExp(regex, 'gu'), (match) => {
       let cueboxArray = match[4].trim().split(' ')
       let cuebox = {}
       let cueboxHasValue

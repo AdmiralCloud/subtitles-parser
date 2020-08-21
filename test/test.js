@@ -1,7 +1,8 @@
-var parser = require('../');
-var fs = require('fs');
+const parser = require('../')
+const fs = require('fs')
+const should = require('should')
 
-var srt = fs.readFileSync('./test/test.srt', { encoding: 'utf-8' });
+const srt = fs.readFileSync('./test/test.srt', { encoding: 'utf-8' });
 
 describe('subtitles-parser', function() {
 
