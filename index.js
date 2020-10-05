@@ -1,7 +1,14 @@
 const XRegExp = require('xregexp')
+const franc = require('franc')
 
 const parser = (function () {
   let pItems = {}
+
+  const mapping = {
+    lao: 'Lao',
+    tam: 'Tamil',
+    tha: 'Thai'
+  }
 
   /**
      * Converts SubRip subtitles into array of objects
@@ -27,6 +34,11 @@ const parser = (function () {
     regex += '(\\d{1,2}:\\d{2}:\\d{2},\\d{3}) --> (\\d{1,2}:\\d{2}:\\d{2},\\d{3})' // CUE
     regex += '(( \\S{1,}:[\\d|\\S]{1,}){0,})\\n' // OPTIONAL INSTRUCTIONS
     regex += '(([\\pN\\pL\\pP\\pS\\p{Z}]{1,}\\n)([\\pN\\pL\\pP\\pS\\p{Z}]{1,}\\n{0,1}){0,})'
+
+    const detectedLanguage = franc(data)
+    if (mapping[detectedLanguage]) {
+      regex = regex.replace('p{Z}', 'p{Z}\\p{' + mapping[detectedLanguage] + '}')
+    }
 
     const items = []
 
