@@ -1,3 +1,16 @@
+<a name="0.0.3"></a>
+
+## [0.0.3](https://github.com/mmpro/subtitles-parser/compare/v0.0.2..v0.0.3) (2020-10-05 16:52:10)
+
+
+### Bug Fix
+
+* **App:** Improved handling of languages with special characters like Thai | MP | [3180cdcc62a22352ea61dd216cb6825ae149620f](https://github.com/mmpro/subtitles-parser/commit/3180cdcc62a22352ea61dd216cb6825ae149620f)    
+Thai languages uses special characters for vocals and sounds. In order to create a working regex we need to identify the language first (using franc) and then use the appropriate add-on (e.g. p{Thai}) to make the regex work.
+### Chores
+
+* **App:** Updated packages | MP | [6a2306463aadd4db9b50f8e37476a161f78882bf](https://github.com/mmpro/subtitles-parser/commit/6a2306463aadd4db9b50f8e37476a161f78882bf)    
+Updated packages
 <a name="0.0.2"></a>
 
 ## [0.0.2](https://github.com/mmpro/subtitles-parser/compare/v0.0.1..v0.0.2) (2020-08-21 18:39:44)
