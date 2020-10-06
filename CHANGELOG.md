@@ -1,3 +1,22 @@
+<a name="1.0.0"></a>
+ 
+# [1.0.0](https://github.com/mmpro/subtitles-parser/compare/v0.0.3..v1.0.0) (2020-10-06 10:59:46)
+
+
+### Feature
+
+* **App:** fromSrt now supports object as seconds parameter | MP | [540c290b82e526408bf6d85c78df07ceda46d632](https://github.com/mmpro/subtitles-parser/commit/540c290b82e526408bf6d85c78df07ceda46d632)    
+Instead of a boolean value (for useMs) the second value of fromSrt function now is an object with properties useMs and language (for special languages like Lao or Thai).
+### Bug Fix
+
+* **App:** Removed franc package | MP | [62c0e862e4b95fa6484189f6841c5c67796cfd5e](https://github.com/mmpro/subtitles-parser/commit/62c0e862e4b95fa6484189f6841c5c67796cfd5e)    
+Subtitle parsing now support language parameter but not longer tries to auto-detect the language. That has to be done in your application.
+### Documentation
+
+* **App:** Updated README | MP | [b0e61c88b3d99c99c64d8c0dda4b0bb31ae016cc](https://github.com/mmpro/subtitles-parser/commit/b0e61c88b3d99c99c64d8c0dda4b0bb31ae016cc)    
+Updated README
+## BREAKING CHANGES
+* **App:** Second parameter is no longer boolean but an object!
 <a name="0.0.3"></a>
 
 ## [0.0.3](https://github.com/mmpro/subtitles-parser/compare/v0.0.2..v0.0.3) (2020-10-05 16:52:10)
