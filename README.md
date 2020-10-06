@@ -8,7 +8,10 @@ Difference to the original version from bazh:
 + ES6 support (const/let)
 + Multi-line support for all languages
 + support for cue box instructions (align, position, etc) from 0.0.7
++ fromSrt function now has an options object as second parameter (instead of a bool value for "useMs")
++ Support for unicode languages with special signs for sounds or vocals like Lao or Thai (use language parameter for fromSrt options)
 
+ATTENTION: This version is most likely not backwards compatible with the original subtitles-parser package
 
 ### Installation:
 
