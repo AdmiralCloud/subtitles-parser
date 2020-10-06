@@ -1,5 +1,4 @@
 const XRegExp = require('xregexp')
-const franc = require('franc')
 
 const parser = (function () {
   let pItems = {}
@@ -27,17 +26,17 @@ const parser = (function () {
      * @param  {Boolean} ms   Optional: use milliseconds for startTime and endTime
      * @return {Array}
      */
-  pItems.fromSrt = function (data, ms) {
-    const useMs = !!ms
+  pItems.fromSrt = function (data, options = {}) {
+    const useMs = options.useMs
+    const language = options.language
 
     let regex = '(\\d+)\\n' // Identifier (optional?, can it be a string?)
     regex += '(\\d{1,2}:\\d{2}:\\d{2},\\d{3}) --> (\\d{1,2}:\\d{2}:\\d{2},\\d{3})' // CUE
     regex += '(( \\S{1,}:[\\d|\\S]{1,}){0,})\\n' // OPTIONAL INSTRUCTIONS
     regex += '(([\\pN\\pL\\pP\\pS\\p{Z}]{1,}\\n)([\\pN\\pL\\pP\\pS\\p{Z}]{1,}\\n{0,1}){0,})'
-
-    const detectedLanguage = franc(data)
-    if (mapping[detectedLanguage]) {
-      regex = regex.replace('p{Z}', 'p{Z}\\p{' + mapping[detectedLanguage] + '}')
+    
+    if (language && mapping[language]) {
+      regex = regex.replace('p{Z}', 'p{Z}\\p{' + mapping[language] + '}')
     }
 
     const items = []
