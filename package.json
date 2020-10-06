@@ -42,7 +42,6 @@
     "release": "node ./node_modules/ac-semantic-release/lib/release.js"
   },
   "dependencies": {
-    "franc": "^5.0.0",
     "xregexp": "^4.2.0"
   }
 }
