@@ -1,3 +1,12 @@
+<a name="1.0.1"></a>
+
+## [1.0.1](https://github.com/mmpro/subtitles-parser/compare/v1.0.0..v1.0.1) (2020-11-27 07:35:27)
+
+
+### Bug Fix
+
+* **App:** Support Hindi and Kannada | MP | [3cf7e1a9e782b672ba6c9651ba00700cb2cc7e5c](https://github.com/mmpro/subtitles-parser/commit/3cf7e1a9e782b672ba6c9651ba00700cb2cc7e5c)    
+Support Hindi and Kannada
 <a name="1.0.0"></a>
  
 # [1.0.0](https://github.com/mmpro/subtitles-parser/compare/v0.0.3..v1.0.0) (2020-10-06 10:59:46)
