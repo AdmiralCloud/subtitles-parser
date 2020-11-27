@@ -6,7 +6,9 @@ const parser = (function () {
   const mapping = {
     lao: 'Lao',
     tam: 'Tamil',
-    tha: 'Thai'
+    tha: 'Thai',
+    hin: 'Hindi',
+    kan: 'Kannada'
   }
 
   /**
