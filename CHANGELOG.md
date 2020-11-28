@@ -1,3 +1,12 @@
+<a name="1.0.2"></a>
+
+## [1.0.2](https://github.com/mmpro/subtitles-parser/compare/v1.0.1..v1.0.2) (2020-11-28 11:47:19)
+
+
+### Bug Fix
+
+* **App:** Updated packages | MP | [c83d311c5d6ba419ecaec5c4d069121f86016e90](https://github.com/mmpro/subtitles-parser/commit/c83d311c5d6ba419ecaec5c4d069121f86016e90)    
+Updated packages
 <a name="1.0.1"></a>
 
 ## [1.0.1](https://github.com/mmpro/subtitles-parser/compare/v1.0.0..v1.0.1) (2020-11-27 07:35:27)
