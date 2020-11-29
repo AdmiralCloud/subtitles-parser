@@ -1,3 +1,16 @@
+<a name="1.0.3"></a>
+
+## [1.0.3](https://github.com/mmpro/subtitles-parser/compare/v1.0.2..v1.0.3) (2020-11-29 10:15:07)
+
+
+### Bug Fix
+
+* **App:** Fixed regex for caption detection | MP | [1478785b914be165e71b927e0f6a7f69d814da22](https://github.com/mmpro/subtitles-parser/commit/1478785b914be165e71b927e0f6a7f69d814da22)    
+Simplified and fixed, especially to handle non-latin languages
+### Tests
+
+* **App:** Added tests for multiple languages | MP | [23ca6f2417817f386605672186f5eacd50bf18e4](https://github.com/mmpro/subtitles-parser/commit/23ca6f2417817f386605672186f5eacd50bf18e4)    
+Added tests for Kannada, Hindi and Thai
 <a name="1.0.2"></a>
 
 ## [1.0.2](https://github.com/mmpro/subtitles-parser/compare/v1.0.1..v1.0.2) (2020-11-28 11:47:19)
