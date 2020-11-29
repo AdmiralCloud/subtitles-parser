@@ -3,14 +3,8 @@ const XRegExp = require('xregexp')
 const parser = (function () {
   let pItems = {}
 
+  // Available languages
   // https://github.com/slevithan/xregexp/blob/c3342b51c9f9d21ce740aba4d47794b139a8ee6f/tools/output/scripts.js
-  const mapping = {
-    lao: 'Lao',
-    tam: 'Tamil',
-    tha: 'Thai',
-    hin: 'Devanagari',
-    kan: 'Kannada'
-  }
 
   /**
      * Converts SubRip subtitles into array of objects
@@ -31,17 +25,11 @@ const parser = (function () {
      */
   pItems.fromSrt = function (data, options = {}) {
     const useMs = options.useMs
-    const language = options.language
 
     let regex = '(\\d+)\\n' // Identifier (optional?, can it be a string?)
     regex += '(\\d{1,2}:\\d{2}:\\d{2},\\d{3}) --> (\\d{1,2}:\\d{2}:\\d{2},\\d{3})' // CUE
     regex += '(( \\S{1,}:[\\d|\\S]{1,}){0,})\\n' // OPTIONAL INSTRUCTIONS
-    //regex += '(([\\pN\\pL\\pP\\pS\\p{Z}]{1,}\\n)([\\pN\\pL\\pP\\pS\\p{Z}]{1,}\\n{0,1}){0,})'
     regex += '(([\\pN\\pL\\pP\\pS\\p{Z}].*\\n){1,})'
-
-    if (language && mapping[language]) {
-      regex = regex.replace(/p{Z}/g, 'p{Z}\\p{' + mapping[language] + '}')
-    }
 
     const items = []
     data = data.replace(/\r/g, '')
