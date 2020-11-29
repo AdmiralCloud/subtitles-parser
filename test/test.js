@@ -2,7 +2,7 @@ const parser = require('../')
 const fs = require('fs')
 const should = require('should')
 
-const srt = fs.readFileSync('./test/test.srt', { encoding: 'utf-8' });
+const srt = fs.readFileSync('./test/files/srt/latin.srt', { encoding: 'utf-8' });
 
 describe('subtitles-parser', function() {
 
@@ -20,7 +20,6 @@ describe('subtitles-parser', function() {
         it('parser.fromSrt() should contain valid subtitle objects', function() {
             for (var i in data) {
                 var s = data[i];
-
                 s.should.have.property('id');
                 s.should.have.property('startTime');
                 s.should.have.property('endTime');
@@ -52,3 +51,42 @@ describe('subtitles-parser', function() {
         });
     });
 });
+
+describe('non latin languages', () => {
+    const languages = [
+        { file: 'latin' },
+        { file: 'hindi', lang: 'hin' },
+        { file: 'kannada', lang: 'kan' },
+        { file: 'thai', lang: 'tha' }
+    ]
+    languages.forEach(lang => {
+        describe(`Language ${lang.file}`,  () => {
+            const srt = fs.readFileSync(`./test/files/srt/${lang.file}.srt`, { encoding: 'utf-8' });
+            const expectedJson = require(`./files/js/${lang.file}`)
+        
+            let data
+            
+            it('parser.fromSrt() should execute without crashes', function() {
+                data = parser.fromSrt(srt, { language: lang.lang });
+            });
+        
+            it('parser.fromSrt() should return array', function() {
+                data.should.be.an.instanceOf(Array)
+                data.should.have.length(expectedJson.length)
+            });
+        
+            it('parser.fromSrt() should contain valid subtitle objects', function() {
+                for (let i in expectedJson) {
+                    let s = data[i]
+                    let check = expectedJson[i]
+        
+                    s.should.have.property('id');
+                    s.should.have.property('startTime', check.startTime);
+                    s.should.have.property('endTime', check.endTime);
+                    s.should.have.property('text', check.text);
+                }
+            });
+        })
+    })
+
+})
