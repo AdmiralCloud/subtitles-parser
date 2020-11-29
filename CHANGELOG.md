@@ -1,3 +1,12 @@
+<a name="1.0.4"></a>
+
+## [1.0.4](https://github.com/mmpro/subtitles-parser/compare/v1.0.3..v1.0.4) (2020-11-29 10:40:16)
+
+
+### Bug Fix
+
+* **App:** Removed language mapping | MP | [27e92a9a1bd7394691df85f99bcf519fa8634188](https://github.com/mmpro/subtitles-parser/commit/27e92a9a1bd7394691df85f99bcf519fa8634188)    
+Language is not necessary after fix for regex
 <a name="1.0.3"></a>
 
 ## [1.0.3](https://github.com/mmpro/subtitles-parser/compare/v1.0.2..v1.0.3) (2020-11-29 10:15:07)
