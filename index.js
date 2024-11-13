@@ -1,6 +1,6 @@
 const XRegExp = require('xregexp')
 
-const parser = (function () {
+const parser = (function() {
   let pItems = {}
 
   // Available languages
@@ -23,13 +23,12 @@ const parser = (function () {
      * @param  {Boolean} ms   Optional: use milliseconds for startTime and endTime
      * @return {Array}
      */
-  pItems.fromSrt = function (data, options = {}) {
+  pItems.fromSrt = function(data, options = {}) {
     const useMs = options.useMs
-
-    let regex = '(\\d+)\\n' // Identifier (optional?, can it be a string?)
-    regex += '(\\d{1,2}:\\d{2}:\\d{2},\\d{3}) --> (\\d{1,2}:\\d{2}:\\d{2},\\d{3})' // CUE
-    regex += '(( \\S{1,}:[\\d|\\S]{1,}){0,})\\n' // OPTIONAL INSTRUCTIONS
-    regex += '(([\\pN\\pL\\pP\\pS\\p{Z}].*\\n){1,})'
+    const regex = '(.+)\\n' +
+      '(\\d{1,2}:\\d{2}:\\d{2},\\d{3}) --> (\\d{1,2}:\\d{2}:\\d{2},\\d{3})' + // CUE
+      '(( \\S{1,}:[\\d|\\S]{1,}){0,})\\n' + // OPTIONAL INSTRUCTIONS
+      '(([\\pN\\pL\\pP\\pS\\p{Z}].*\\n){1,})'
 
     const items = []
     data = data.replace(/\r/g, '')
@@ -66,7 +65,7 @@ const parser = (function () {
      * @param  {Array}  data
      * @return {String}      SubRip subtitles string
      */
-  pItems.toSrt = function (data) {
+  pItems.toSrt = function(data) {
     if (!(data instanceof Array)) return ''
     let res = ''
 
@@ -86,7 +85,7 @@ const parser = (function () {
     return res
   }
 
-  const timeMs = function (val) {
+  const timeMs = function(val) {
     let regex = /(\d+):(\d{2}):(\d{2}),(\d{3})/
     let parts = regex.exec(val)
 
@@ -103,8 +102,8 @@ const parser = (function () {
     return parts[1] * 3600000 + parts[2] * 60000 + parts[3] * 1000 + parts[4]
   }
 
-  let msTime = function (val) {
-    const measures = [ 3600000, 60000, 1000 ]
+  let msTime = function(val) {
+    const measures = [3600000, 60000, 1000]
     let time = []
 
     for (let i in measures) {
