@@ -1,7 +1,7 @@
 {
   "name": "subtitles-parser",
   "description": "NodeJS Parser for SubRip subtitles",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "bazh <interesno@gmail.com>",
   "contributors": [
     "Mark Poepping <mark.poepping@admiralcloud.com>",

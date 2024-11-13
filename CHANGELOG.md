@@ -1,3 +1,16 @@
+<a name="1.0.5"></a>
+
+## [1.0.5](https://github.com/mmpro/subtitles-parser/compare/v1.0.4..v1.0.5) (2024-11-13 11:20:01)
+
+
+### Bug Fix
+
+* **App:** srt line identifier any string | VD | [5f819a4b9ff143196d78343edd7d3cda089a2bce](https://github.com/mmpro/subtitles-parser/commit/5f819a4b9ff143196d78343edd7d3cda089a2bce)    
+srt line identifier any string
+### Chores
+
+* **Misc:** Updated packages | VD | [6f1cc949990d282528bf4711b916e07af4b004ed](https://github.com/mmpro/subtitles-parser/commit/6f1cc949990d282528bf4711b916e07af4b004ed)    
+Updated packages
 <a name="1.0.4"></a>
 
 ## [1.0.4](https://github.com/mmpro/subtitles-parser/compare/v1.0.3..v1.0.4) (2020-11-29 10:40:16)
