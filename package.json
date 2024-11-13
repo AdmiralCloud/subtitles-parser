@@ -3,8 +3,9 @@
   "description": "NodeJS Parser for SubRip subtitles",
   "version": "1.0.4",
   "author": "bazh <interesno@gmail.com>",
-  "contributor": [
-    "Mark Poepping <mark@mmpro.de>"
+  "contributors": [
+    "Mark Poepping <mark.poepping@admiralcloud.com>",
+    "Virginijus Digrys <virginijus.digrys@admiralcloud.com>"
   ],
   "license": "MIT",
   "keywords": [
@@ -23,9 +24,9 @@
   },
   "main": "index.js",
   "devDependencies": {
-    "ac-semantic-release": "^0.2.5",
-    "eslint": "^7.14.0",
-    "mocha": "^8.2.1",
+    "ac-semantic-release": "^0.4.3",
+    "eslint": "^7.32.0",
+    "mocha": "^8.4.0",
     "should": "^13.2.3"
   },
   "engines": {
@@ -42,6 +43,6 @@
     "release": "node ./node_modules/ac-semantic-release/lib/release.js"
   },
   "dependencies": {
-    "xregexp": "^4.4.0"
+    "xregexp": "^4.4.1"
   }
 }
