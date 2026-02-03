@@ -1,3 +1,12 @@
+
+## [1.0.6](https://github.com/mmpro/subtitles-parser/compare/v1.0.5..v1.0.6) (2026-02-03 09:50:41)
+
+
+### Bug Fix
+
+* **Misc:** package updates | VD | [fac5ddbdd8cb25e3c41ac31caec77b5223eb04d5](https://github.com/mmpro/subtitles-parser/commit/fac5ddbdd8cb25e3c41ac31caec77b5223eb04d5)    
+package updates  
+Related issues:
 <a name="1.0.5"></a>
 
 ## [1.0.5](https://github.com/mmpro/subtitles-parser/compare/v1.0.4..v1.0.5) (2024-11-13 11:20:01)
