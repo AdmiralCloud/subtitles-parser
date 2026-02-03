@@ -24,9 +24,9 @@
   },
   "main": "index.js",
   "devDependencies": {
-    "ac-semantic-release": "^0.4.3",
-    "eslint": "^7.32.0",
-    "mocha": "^8.4.0",
+    "ac-semantic-release": "^0.4.10",
+    "eslint": "^9.39.2",
+    "mocha": "^11.7.5",
     "should": "^13.2.3"
   },
   "engines": {
@@ -43,6 +43,6 @@
     "release": "node ./node_modules/ac-semantic-release/lib/release.js"
   },
   "dependencies": {
-    "xregexp": "^4.4.1"
+    "xregexp": "^5.1.2"
   }
 }
